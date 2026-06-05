@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ToastProvider } from './context/ToastContext';
+import { ThemeProvider } from './context/ThemeContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './layouts/Layout';
 import Auth from './pages/Auth';
@@ -38,18 +39,20 @@ function DashboardWrapper() {
 
 function App() {
   return (
-    <AuthProvider>
-      <ToastProvider>
-        <Router>
-          <Routes>
-            <Route path="/login" element={<Auth mode="login" />} />
-            <Route path="/signup" element={<Auth mode="signup" />} />
-            <Route path="/" element={<DashboardWrapper />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Router>
-      </ToastProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <ToastProvider>
+          <Router>
+            <Routes>
+              <Route path="/login" element={<Auth mode="login" />} />
+              <Route path="/signup" element={<Auth mode="signup" />} />
+              <Route path="/" element={<DashboardWrapper />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Router>
+        </ToastProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

@@ -28,10 +28,10 @@ export const ToastProvider = ({ children }) => {
             onClick={() => removeToast(toast.id)}
             className={`flex cursor-pointer items-center justify-between gap-3 rounded-lg border px-4 py-3 text-sm shadow-lg backdrop-blur-md transition-all duration-300 hover:opacity-90 ${
               toast.type === 'error'
-                ? 'border-red-900/50 bg-red-950/80 text-red-200'
+                ? 'border-red-200 bg-red-50 text-red-800 dark:border-red-900/50 dark:bg-red-950/80 dark:text-red-200'
                 : toast.type === 'info'
-                  ? 'border-zinc-800 bg-zinc-900/80 text-zinc-300'
-                  : 'border-emerald-900/50 bg-emerald-950/80 text-emerald-200'
+                  ? 'border-zinc-200 bg-zinc-50 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300'
+                  : 'border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-900/50 dark:bg-emerald-950/80 dark:text-emerald-200'
             }`}
           >
             <span>{toast.message}</span>

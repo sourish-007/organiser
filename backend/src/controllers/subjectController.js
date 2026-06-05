@@ -26,7 +26,7 @@ const getSubjects = async (req, res) => {
       query.monthId = { $in: monthIds };
     }
 
-    const subjects = await Subject.find(query);
+    const subjects = await Subject.find(query).sort({ createdAt: 1 });
     res.json(subjects);
   } catch (error) {
     res.status(500).json({ message: error.message });

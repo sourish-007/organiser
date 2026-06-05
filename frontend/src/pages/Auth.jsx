@@ -76,13 +76,13 @@ const Auth = ({ mode }) => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-950 px-4 text-zinc-100">
-      <div className="w-full max-w-sm rounded-lg border border-zinc-800 bg-zinc-900/50 p-8 shadow-xl backdrop-blur-md">
+    <div className="flex min-h-screen items-center justify-center bg-white dark:bg-zinc-900 px-4 text-zinc-900 dark:text-zinc-100">
+      <div className="w-full max-w-sm rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-800 p-8 shadow-xl dark:shadow-none">
         <div className="mb-8 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-100">
+          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
             {mode === 'signup' ? 'Create an account' : 'Welcome back'}
           </h1>
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
             {mode === 'signup'
               ? 'Get started with Current Affairs Knowledge Manager'
               : 'Enter your credentials to access your workspace'}
@@ -90,7 +90,7 @@ const Auth = ({ mode }) => {
         </div>
 
         {error && (
-          <div className="mb-4 rounded border border-red-900/50 bg-red-950/30 p-3 text-sm text-red-400">
+          <div className="mb-4 rounded border border-red-200 bg-red-50 dark:border-red-900/50 dark:bg-red-950/40 p-3 text-sm text-red-600 dark:text-red-300">
             {error}
           </div>
         )}
@@ -98,7 +98,7 @@ const Auth = ({ mode }) => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-xs font-medium uppercase tracking-wider text-zinc-400">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
                 Full Name
               </label>
               <input
@@ -106,17 +106,17 @@ const Auth = ({ mode }) => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded border border-zinc-800 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 outline-none transition focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600"
+                className="mt-1 block w-full rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500"
                 placeholder="Full Name"
               />
               {formErrors.name && (
-                <p className="mt-1 text-xs text-red-400">{formErrors.name}</p>
+                <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>
               )}
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-medium uppercase tracking-wider text-zinc-400">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               User ID
             </label>
             <input
@@ -124,16 +124,16 @@ const Auth = ({ mode }) => {
               name="userId"
               value={formData.userId}
               onChange={handleChange}
-              className="mt-1 block w-full rounded border border-zinc-800 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 outline-none transition focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600"
+              className="mt-1 block w-full rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500"
               placeholder="User ID"
             />
             {formErrors.userId && (
-              <p className="mt-1 text-xs text-red-400">{formErrors.userId}</p>
+              <p className="mt-1 text-xs text-red-500">{formErrors.userId}</p>
             )}
           </div>
 
           <div>
-            <label className="block text-xs font-medium uppercase tracking-wider text-zinc-400">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               Password
             </label>
             <input
@@ -141,18 +141,18 @@ const Auth = ({ mode }) => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="mt-1 block w-full rounded border border-zinc-800 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 outline-none transition focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600"
+              className="mt-1 block w-full rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500"
               placeholder="••••••••"
             />
             {formErrors.password && (
-              <p className="mt-1 text-xs text-red-400">{formErrors.password}</p>
+              <p className="mt-1 text-xs text-red-500">{formErrors.password}</p>
             )}
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded bg-zinc-100 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200 disabled:opacity-50 transition"
+            className="w-full rounded bg-zinc-900 dark:bg-zinc-100 py-2 text-sm font-semibold text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-50 transition"
           >
             {isSubmitting
               ? 'Please wait...'
@@ -163,11 +163,11 @@ const Auth = ({ mode }) => {
         </form>
 
         <div className="mt-6 text-center text-sm">
-          <p className="text-zinc-400">
+          <p className="text-zinc-600 dark:text-zinc-400">
             {mode === 'signup' ? 'Already have an account? ' : "Don't have an account? "}
             <Link
               to={mode === 'signup' ? '/login' : '/signup'}
-              className="font-medium text-zinc-100 underline underline-offset-4 hover:text-zinc-300"
+              className="font-semibold text-zinc-900 dark:text-zinc-100 underline underline-offset-4 hover:text-zinc-700 dark:hover:text-zinc-300"
             >
               {mode === 'signup' ? 'Sign In' : 'Sign Up'}
             </Link>
